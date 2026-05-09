@@ -1,4 +1,4 @@
-import { defineExtension } from "@unbrained/pm-cli/sdk";
+import { defineExtension, type CommandHandlerContext } from "@unbrained/pm-cli/sdk";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
@@ -109,10 +109,6 @@ const TEMPLATE_MILESTONE = {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function resolvePmDir(cwd: string): string {
-  return path.join(cwd, ".agents", "pm");
-}
-
 function writeJsonFile(
   filePath: string,
   data: unknown,
@@ -132,44 +128,40 @@ function writeJsonFile(
 // ---------------------------------------------------------------------------
 
 export default defineExtension({
-  name: "pm-preset-startup-roadmap",
-  version: "0.1.0",
-
-  commands: [
-    {
+  activate(api) {
+    api.registerCommand({
       name: "roadmap-setup",
       description:
         "Apply the startup-roadmap preset: settings, item types, and templates for investor-visible planning.",
       flags: [
         {
-          name: "force",
+          long: "force",
           type: "boolean",
           description: "Overwrite existing settings.json without prompting",
-          default: false,
         },
         {
-          name: "dry-run",
+          long: "dry-run",
           type: "boolean",
           description: "Preview what would be written without making changes",
-          default: false,
         },
         {
-          name: "prefix",
+          long: "prefix",
           type: "string",
           description: "Override the id_prefix in settings (default: road-)",
-          default: "",
         },
       ],
 
-      async run({ flags, cwd }: { flags: Record<string, unknown>; cwd: string }) {
-        const force = Boolean(flags["force"]);
-        const dryRun = Boolean(flags["dry-run"]);
+      async run(context: CommandHandlerContext) {
+        const { options, pm_root } = context;
+        const force = Boolean(options["force"]);
+        const dryRun = Boolean(options["dry-run"]);
         const prefixOverride =
-          typeof flags["prefix"] === "string" && flags["prefix"] !== ""
-            ? (flags["prefix"] as string)
+          typeof options["prefix"] === "string" && options["prefix"] !== ""
+            ? (options["prefix"] as string)
             : null;
 
-        const pmDir = resolvePmDir(cwd);
+        const cwd = pm_root ?? process.cwd();
+        const pmDir = path.join(cwd, ".agents", "pm");
 
         // 1. Verify .agents/pm/ exists
         if (!fs.existsSync(pmDir)) {
@@ -247,6 +239,6 @@ Tips:
   • Run "pm calendar" to view items in the monthly calendar.
 `);
       },
-    },
-  ],
+    });
+  },
 });
