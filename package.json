@@ -1,0 +1,17 @@
+{
+  "name": "pm-preset-startup-roadmap",
+  "version": "0.1.0",
+  "description": "Startup roadmap pm workspace preset — investor-grade milestones, strategic initiatives, quarterly planning",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@unbrained/pm-cli": ">=2026.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "pm-preset-startup-roadmap",
+  "version": "0.1.0",
+  "description": "Startup roadmap pm workspace preset — investor-grade milestones, strategic initiatives, quarterly planning",
+  "entry": "index.js",
+  "capabilities": ["commands"]
+}
