@@ -4,6 +4,7 @@
   "description": "Startup roadmap pm workspace preset \u2014 investor-grade milestones, strategic initiatives, quarterly planning",
   "entry": "./dist/index.js",
   "capabilities": [
-    "commands"
+    "commands",
+    "schema"
   ]
 }
