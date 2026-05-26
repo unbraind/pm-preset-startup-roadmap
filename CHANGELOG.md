@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Add bun-install verification to release workflow ([pm-preset-startup-roadmap-1xlp](https://github.com/unbraind/pm-preset-startup-roadmap/blob/main/.agents/pm/tasks/pm-preset-startup-roadmap-1xlp.toon))
+
 ## 2026.05.26 - 2026-05-26
 
 ### Fixed
