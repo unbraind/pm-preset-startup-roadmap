@@ -1,12 +1,15 @@
 {
   "name": "pm-preset-startup-roadmap",
   "version": "0.1.0",
-  "description": "Startup roadmap pm workspace preset \u2014 investor-grade milestones, strategic initiatives, quarterly planning",
+  "description": "Startup roadmap pm workspace preset — investor-grade milestones, strategic initiatives, quarterly planning",
   "author": "@unbraind",
   "entry": "./dist/index.js",
   "priority": 50,
   "capabilities": [
     "commands",
     "schema"
-  ]
+  ],
+  "pm": {
+    "compatibility": "v2"
+  }
 }

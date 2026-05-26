@@ -13,7 +13,7 @@ Running `pm roadmap-setup` in a pm-cli workspace:
 ## Install
 
 ```sh
-pm extension install github.com/unbraind/pm-preset-startup-roadmap --project
+pm install github.com/unbraind/pm-preset-startup-roadmap
 ```
 
 > The `--project` flag scopes the extension to the current workspace only.
@@ -85,7 +85,7 @@ Tracks a release milestone with investor-facing and go-to-market fields:
 pm init
 
 # 2. Install and apply the preset
-pm extension install github.com/unbraind/pm-preset-startup-roadmap --project
+pm install github.com/unbraind/pm-preset-startup-roadmap
 pm roadmap-setup
 
 # 3. Create your first strategic initiative
@@ -111,3 +111,7 @@ pm list --tag milestone
 ## License
 
 MIT
+
+## Release Automation
+
+This package is release-ready for GitHub, npm, and Bun-compatible installs. CI runs type checking, build, production dependency audit, package packing, Bun install verification, and pm-changelog validation. The daily release workflow publishes only when commits exist after the latest release tag and uses pm-changelog to generate CHANGELOG.md and GitHub release notes.
