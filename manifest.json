@@ -1,6 +1,6 @@
 {
   "name": "pm-preset-startup-roadmap",
-  "version": "2026.5.28",
+  "version": "2026.5.29",
   "description": "Startup roadmap pm workspace preset — investor-grade milestones, strategic initiatives, quarterly planning",
   "author": "@unbraind",
   "entry": "./dist/index.js",
